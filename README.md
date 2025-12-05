@@ -13,14 +13,14 @@ Este é o backend do projeto **marketplace**.
 
 Siga os passos abaixo para configurar e rodar o projeto em seu ambiente local.
 
-### 1️⃣ Clonar o repositório
+### 1 Clonar o repositório
 
 ```sh
 git clone https://github.com/rocketseat-education/marketplace-backend.git
 cd marketplace-backend
 ```
 
-### 2️⃣ Instalar as dependências
+### 2 Instalar as dependências
 
 Utilize o gerenciador de pacotes **yarn** ou **npm** para instalar todas as dependências do projeto:
 
@@ -30,7 +30,7 @@ ou
 npm i
 ```
 
-### 3️⃣ Rodar as migrations
+### 3️ Rodar as migrations
 
 Execute o comando abaixo para criar as tabelas no banco de dados:
 
@@ -40,7 +40,17 @@ ou
 npm run migration:run
 ```
 
-### 4️⃣ Iniciar o servidor
+### 4️4 Pegar credenciais do onesignal
+
+Agora, seguindo as instruções da aula ou na documentação do onesignal, deve por as credenciais do app_id e api_key na .env
+Documentação: https://documentation.onesignal.com/reference/rest-api-overview
+```sh
+ONESIGNAL_APP_ID="your-onesignal-app-id"
+ONESIGNAL_API_KEY="your-onesignal-rest-api-key"
+```
+
+
+### 5 Iniciar o servidor
 
 Agora, basta rodar o servidor com:
 
