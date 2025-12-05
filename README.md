@@ -40,7 +40,7 @@ ou
 npm run migration:run
 ```
 
-### 4️4 Pegar credenciais do onesignal
+### 4 Pegar credenciais do onesignal
 
 Agora, seguindo as instruções da aula ou na documentação do onesignal, deve por as credenciais do app_id e api_key na .env
 Documentação: https://documentation.onesignal.com/reference/rest-api-overview
