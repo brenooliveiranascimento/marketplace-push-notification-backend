@@ -133,4 +133,18 @@ export class UserTypeormRepository implements UserRepositoryInterface {
       throw new DatabaseError("Falha ao deletar cartão de crédito!", error);
     }
   }
+
+  async updateNotificationToken(
+    userId: number,
+    notificationToken: string
+  ): Promise<void> {
+    try {
+      await this.userRepository.update(userId, { notificationToken });
+    } catch (error) {
+      throw new DatabaseError(
+        "Falha ao atualizar token de notificação!",
+        error
+      );
+    }
+  }
 }

@@ -3,7 +3,8 @@ import S from "fluent-json-schema";
 
 const body = S.object()
   .prop("email", S.string().required().examples(["teste@gmail.com"]))
-  .prop("password", S.string().required().examples(["123123123"]));
+  .prop("password", S.string().required().examples(["123123123"]))
+  .prop("notificationToken", S.string().examples(["onesignal-player-id"]));
 
 const successResponse = S.object()
   .prop("user", S.ref("User#"))

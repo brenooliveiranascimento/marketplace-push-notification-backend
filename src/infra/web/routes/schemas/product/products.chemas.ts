@@ -296,3 +296,33 @@ export const updateCommentSchema: FastifySchema = {
     500: { $ref: "ServerError#" },
   },
 };
+
+const updateProductPriceParams = S.object().prop(
+  "productId",
+  S.string().required()
+);
+
+const updateProductPriceBody = S.object().prop(
+  "price",
+  S.number().required().examples([1999])
+);
+
+const updateProductPriceResponse = S.object()
+  .prop("message", S.string())
+  .prop("product", S.ref("Product#"))
+  .prop("notificationsSent", S.number());
+
+export const updateProductPriceSchema: FastifySchema = {
+  tags: ["Products"],
+  summary: "Update product price (Public - for demo purposes)",
+  description:
+    "Updates a product price. If the new price is lower than the old price, sends push notifications to users who favorited this product.",
+  params: updateProductPriceParams,
+  body: updateProductPriceBody,
+  response: {
+    200: updateProductPriceResponse,
+    404: { $ref: "NotFound#" },
+    422: { $ref: "UnprocessableEntity#" },
+    500: { $ref: "ServerError#" },
+  },
+};

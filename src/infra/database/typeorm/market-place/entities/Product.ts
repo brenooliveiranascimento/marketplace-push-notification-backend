@@ -9,6 +9,7 @@ import {
 } from "typeorm";
 import { Comment } from "./Comment";
 import { Category } from "./Category";
+import { Favorite } from "./Favorite";
 
 @Entity("products")
 export class Product {
@@ -61,4 +62,7 @@ export class Product {
   @ManyToOne(() => Category, (category) => category.products)
   @JoinColumn({ name: "category_id", referencedColumnName: "id" })
   category?: Category;
+
+  @OneToMany(() => Favorite, (favorite) => favorite.product)
+  favorites?: Favorite[];
 }

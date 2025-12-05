@@ -15,7 +15,9 @@ import {
   getUserCommentSchema,
   rateProductSchema,
   updateCommentSchema,
+  updateProductPriceSchema,
 } from "./schemas/product/products.chemas";
+import { UpdateProductPriceController } from "../controllers/product/update-product-price.controller";
 import { FindProductCategoriesByIdController } from "../controllers/product/find-product-categories.controller";
 import { GetUserCommentController } from "../controllers/product/get-user-comment.controller";
 import { UpdateCommentController } from "../controllers/product/update-comment.controller";
@@ -28,6 +30,7 @@ export const configure = (fastify: FastifyInstance) => {
   const createCommentController = new CreateCommentController();
   const getUserCommentController = new GetUserCommentController();
   const updateCommentController = new UpdateCommentController();
+  const updateProductPriceController = new UpdateProductPriceController();
   const checkAuthenticated = new CheckAuthtenticationMiddleware();
   const findProductCategoriesByIdController =
     new FindProductCategoriesByIdController();
@@ -94,5 +97,13 @@ export const configure = (fastify: FastifyInstance) => {
     handler: updateCommentController.execute,
     preHandler: [checkAuthenticated.execute],
     schema: updateCommentSchema,
+  });
+
+  // Rota pública para atualização de preço (para demonstração em aula)
+  fastify.route({
+    url: "/products/:productId/price",
+    method: "patch",
+    handler: updateProductPriceController.execute,
+    schema: updateProductPriceSchema,
   });
 };

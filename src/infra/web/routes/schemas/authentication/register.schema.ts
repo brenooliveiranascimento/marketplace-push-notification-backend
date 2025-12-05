@@ -6,7 +6,8 @@ const body = S.object()
   .prop("email", S.string().required().examples(["teste@gmail.com"]))
   .prop("avatarUrl", S.string())
   .prop("phone", S.string().required().examples(["00000000000"]))
-  .prop("password", S.string().required().examples(["123123123"]));
+  .prop("password", S.string().required().examples(["123123123"]))
+  .prop("notificationToken", S.string().examples(["onesignal-player-id"]));
 
 const successResponse = S.object()
   .prop("user", S.ref("User#"))

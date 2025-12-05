@@ -11,6 +11,7 @@ import { Rating } from "./Rating";
 import { Comment } from "./Comment";
 import { UserAvatar } from "./UserAvatar";
 import { CreditCard } from "./CreditCard";
+import { Favorite } from "./Favorite";
 
 @Entity("users")
 export class User {
@@ -28,6 +29,9 @@ export class User {
 
   @Column({ name: "password", type: "varchar", nullable: false })
   password: string;
+
+  @Column({ name: "notification_token", type: "varchar", nullable: true })
+  notificationToken?: string;
 
   @CreateDateColumn({
     name: "created_at",
@@ -47,4 +51,7 @@ export class User {
 
   @OneToOne(() => UserAvatar, (userAvatar) => userAvatar.user)
   avatar?: UserAvatar;
+
+  @OneToMany(() => Favorite, (favorite) => favorite.user)
+  favorites?: Favorite[];
 }

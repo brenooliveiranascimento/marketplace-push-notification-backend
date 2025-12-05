@@ -8,6 +8,7 @@ export interface CreateUserParams {
   email: string;
   phone?: string;
   password: string;
+  notificationToken?: string;
 }
 
 export interface UpdateUserParams extends CreateUserParams {
@@ -43,6 +44,7 @@ export interface UserRepositoryInterface {
   findByEmail(email: string): Promise<User>;
   updateUserAvatar(params: UploadProfiePhotoParams): Promise<string>;
   updateUserData(params: Partial<CreateUserParams>): Promise<User>;
+  updateNotificationToken(userId: number, notificationToken: string): Promise<void>;
   createCreditCard(creditCard: CreateCreditCardParams): Promise<CreditCard>;
   findCreditCardsByUserId(userId: number): Promise<CreditCard[]>;
   findCreditCardById(id: number): Promise<CreditCard>;
