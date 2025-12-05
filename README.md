@@ -1,4 +1,4 @@
-# Marketplace - Backend - RocketSeat
+# Marketplace - Push Notification - Backend - RocketSeat
 
 Este é o backend do projeto **marketplace**.
 
