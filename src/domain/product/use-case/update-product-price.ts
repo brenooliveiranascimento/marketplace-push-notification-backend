@@ -60,6 +60,7 @@ export class UpdateProductPriceUseCase {
           oldPrice,
           newPrice,
           productId,
+          productImageUrl: product.photo,
         });
 
         notificationsSent = result?.recipients || 0;

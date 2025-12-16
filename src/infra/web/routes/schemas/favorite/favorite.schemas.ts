@@ -12,6 +12,7 @@ const removeFavoriteParamsSchema = z.object({
 export const addFavoriteSchema = {
   tags: ["Favorites"],
   summary: "Add product to favorites for price notifications",
+  security: [{ bearerAuth: [] }],
   body: zodToJsonSchema(addFavoriteBodySchema),
   response: {
     201: zodToJsonSchema(
@@ -28,6 +29,7 @@ export const addFavoriteSchema = {
 export const removeFavoriteSchema = {
   tags: ["Favorites"],
   summary: "Remove product from favorites",
+  security: [{ bearerAuth: [] }],
   params: zodToJsonSchema(removeFavoriteParamsSchema),
   response: {
     204: {
@@ -40,6 +42,7 @@ export const removeFavoriteSchema = {
 export const getUserFavoritesSchema = {
   tags: ["Favorites"],
   summary: "Get user favorites",
+  security: [{ bearerAuth: [] }],
   response: {
     200: zodToJsonSchema(
       z.array(
